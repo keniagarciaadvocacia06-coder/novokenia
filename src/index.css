@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 28 25% 32%;
+    --foreground: 48 95% 72%;
+
+    --card: 28 20% 26%;
+    --card-foreground: 48 95% 72%;
+
+    --popover: 28 20% 26%;
+    --popover-foreground: 48 95% 72%;
+
+    --primary: 48 100% 50%;
+    --primary-foreground: 28 40% 8%;
+
+    --secondary: 28 20% 24%;
+    --secondary-foreground: 48 95% 72%;
+
+    --muted: 28 16% 28%;
+    --muted-foreground: 45 50% 58%;
+
+    --accent: 50 100% 55%;
+    --accent-foreground: 28 40% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 48 70% 48%;
+    --input: 48 70% 48%;
+    --ring: 48 100% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 28 22% 18%;
+    --sidebar-foreground: 48 95% 72%;
+    --sidebar-primary: 48 100% 50%;
+    --sidebar-primary-foreground: 28 40% 8%;
+    --sidebar-accent: 28 20% 24%;
+    --sidebar-accent-foreground: 48 95% 72%;
+    --sidebar-border: 48 70% 48%;
+    --sidebar-ring: 48 100% 50%;
+
+    /* Custom tokens */
+    --gold: 48 100% 50%;
+    --gold-light: 50 100% 65%;
+    --gold-dark: 45 80% 38%;
+    --brown-dark: 28 25% 10%;
+    --brown-medium: 28 20% 26%;
+    --cream: 48 70% 88%;
+    --cream-muted: 45 35% 60%;
+
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Inter', sans-serif;
+
+    --gradient-gold: linear-gradient(135deg, hsl(38 65% 58%), hsl(40 70% 70%));
+    --shadow-gold: 0 4px 20px hsl(38 65% 58% / 0.25);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer utilities {
+  .text-gold-gradient {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-gold-gradient {
+    border-image: var(--gradient-gold) 1;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}

@@ -14,19 +14,30 @@ import DireitosGenitor from "./pages/artigos/DireitosGenitor.tsx";
 import DanosMorais from "./pages/artigos/DanosMorais.tsx";
 import UniaoEstavel from "./pages/artigos/UniaoEstavel.tsx";
 import Concubinato from "./pages/artigos/Concubinato.tsx";
+import { useEffect, useState } from "react";
 import { ErrorDebugPopup } from "./components/debug/ErrorDebugPopup";
 
 const queryClient = new QueryClient();
 
-const App = () => (
+const App = () => {
+  const [showDebug, setShowDebug] = useState(false);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const tag = (e.target as HTMLElement)?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || (e.target as HTMLElement)?.isContentEditable) return;
+      if (e.key === "t" || e.key === "T") setShowDebug((s) => !s);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  return (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      {typeof window !== "undefined" &&
-        new URLSearchParams(window.location.search).get("admin") === "1" && (
-          <ErrorDebugPopup />
-        )}
+      {showDebug && <ErrorDebugPopup />}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
@@ -44,6 +55,7 @@ const App = () => (
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
-);
+  );
+};
 
 export default App;

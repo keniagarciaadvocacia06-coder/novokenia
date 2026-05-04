@@ -14,6 +14,7 @@ import DireitosGenitor from "./pages/artigos/DireitosGenitor.tsx";
 import DanosMorais from "./pages/artigos/DanosMorais.tsx";
 import UniaoEstavel from "./pages/artigos/UniaoEstavel.tsx";
 import Concubinato from "./pages/artigos/Concubinato.tsx";
+import { ErrorDebugPopup } from "./components/debug/ErrorDebugPopup";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,10 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      {typeof window !== "undefined" &&
+        new URLSearchParams(window.location.search).get("admin") === "1" && (
+          <ErrorDebugPopup />
+        )}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

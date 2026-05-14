@@ -25,7 +25,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/30 bg-gradient-to-r from-[#d4b896] to-[#66503d] backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2">
         <a href="#inicio" className="block">
-          <img src={logoKg} alt="KG — Kênia Garcia Advocacia" className="h-40 w-auto" />
+          <img src={logoKg} alt="KG — Kênia Garcia Advocacia" className="h-40 w-auto brightness-0 invert opacity-80" />
         </a>
 
         <div className="hidden items-center gap-8 lg:flex">

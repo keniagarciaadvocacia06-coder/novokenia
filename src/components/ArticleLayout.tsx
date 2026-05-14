@@ -33,7 +33,7 @@ const ArticleLayout = ({ title, description, children }: ArticleLayoutProps) => 
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/30 bg-gradient-to-r from-[#d4b896] to-[#66503d] backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2">
           <Link to="/" className="block">
-            <img src={logoKg} alt="KG — Kênia Garcia Advocacia" className="h-20 w-auto" />
+            <img src={logoKg} alt="KG — Kênia Garcia Advocacia" className="h-20 w-auto brightness-0 invert opacity-80" />
           </Link>
           <Link to="/" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors text-sm">
             <ArrowLeft className="w-4 h-4" />
@@ -69,7 +69,7 @@ const ArticleLayout = ({ title, description, children }: ArticleLayoutProps) => 
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-border">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <img src={logoKg} alt="KG — Kênia Garcia Advocacia" className="h-20 w-auto" />
+          <img src={logoKg} alt="KG — Kênia Garcia Advocacia" className="h-20 w-auto brightness-0 invert opacity-80" />
           <p className="text-muted-foreground text-xs">
             © {new Date().getFullYear()} Todos os direitos reservados.
           </p>
